@@ -1,0 +1,18 @@
+<div>
+    App Env: {{ currentEnv }} 
+    <br>
+    Sample Data: {{ sampleObj | json}}
+</div>
+<a routerLink="/">/</a>
+<br />
+<a routerLink="/shared">/shared</a>
+<br />
+<a routerLink="/shared/sample1">/sample1</a>
+<br />
+<a routerLink="/shared/sample2">/sample2</a>
+<br />
+<a routerLink="/shared/sample3">/sample3</a>
+<br />
+<a routerLink="/notfound">/notfound</a>
+<br />
+<router-outlet></router-outlet>
