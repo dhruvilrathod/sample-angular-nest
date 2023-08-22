@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment.development';
 @Component({
   selector: 'frontend-root',
   templateUrl: './frontend.component.html',
-  styleUrls: ['./frontend.component.scss']
+  styleUrls: ['./frontend.component.scss'],
 })
 export class FrontendComponent {
   title = 'sample-angular-nest';
@@ -14,6 +14,6 @@ export class FrontendComponent {
 
   public sampleObj: SampleInterface = {
     id: 1234,
-    name: "abc"
-  }
+    name: 'abc',
+  };
 }

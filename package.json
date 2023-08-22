@@ -20,7 +20,7 @@
     "backend-test-coverage": "jest --watch --coverage",
     "backend-test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "backend-test:e2e": "jest --config ./backend-test/jest-e2e.json",
-    "fullstack-run-dev": "nest start --watch & ng serve -o",
+    "fullstack-start-dev": "nest start --watch & ng serve -o",
     "fullstack-build-prod": "nest build && ng build --configuration=production"
   },
   "private": true,

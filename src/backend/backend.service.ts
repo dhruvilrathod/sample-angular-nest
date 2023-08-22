@@ -5,11 +5,11 @@ import { SampleInterface } from 'src/assets/sample.interface';
 export class BackendService {
   getHello(): SampleInterface {
     console.log('hello hit');
-    
-    let sampleObj:SampleInterface = {
+
+    const sampleObj: SampleInterface = {
       id: 234,
-      name: "asd"
-    }
+      name: 'asd',
+    };
     return sampleObj;
   }
 }

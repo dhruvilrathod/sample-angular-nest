@@ -5,14 +5,9 @@ import { FrontendRoutingModule } from './frontend-routing.module';
 import { FrontendComponent } from './frontend.component';
 
 @NgModule({
-  declarations: [
-    FrontendComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FrontendRoutingModule
-  ],
+  declarations: [FrontendComponent],
+  imports: [BrowserModule, FrontendRoutingModule],
   providers: [],
-  bootstrap: [FrontendComponent]
+  bootstrap: [FrontendComponent],
 })
-export class FrontendModule { }
+export class FrontendModule {}

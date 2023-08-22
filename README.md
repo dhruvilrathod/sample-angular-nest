@@ -1,27 +1,56 @@
-# SampleAngularNest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+# Angular + NestJS Boilerplate
 
-## Development server
+This project is a basic orchestration of using Angular and NestJS in a single project under common environment
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requirements
 
-## Code scaffolding
+Recommanded requirements for the installation of this project:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `NodeJS Version 18.15.0`
+- `Angular Version 16.1.8`
+- `NestJS Version 10.0.0`
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation 
 
-## Running unit tests
+```bash
+git clone https://github.com/dhruvilrathod/sample-angular-nest
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+cd sample-angular-nest
 
-## Running end-to-end tests
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+    
+## Run Locally
 
-## Further help
+To only run Angular frontend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm run frontend-start
+```
+
+To only run NestJS backend
+
+```
+npm run backend-start
+```
+To run fullstack (Frontend + Backend combined) project
+
+```
+npm run fullstack-run-dev
+```
+
+*For build and test commands in detail, refer `package.json`*
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Authors
+
+- [@dhruvilrathod](https://www.github.com/dhruvilrathod)
+
+
+*Additional things are coming...*

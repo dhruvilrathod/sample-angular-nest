@@ -6,27 +6,34 @@ import { ErrorComponent } from './app/shared/error/error.component';
 const routes: Routes = [
   {
     path: '',
-    component: FrontendComponent
+    component: FrontendComponent,
   },
   {
     path: 'shared',
-    loadChildren: () => import('./app/shared/shared.module').then((module) => module.SharedModule)
+    loadChildren: () =>
+      import('./app/shared/shared.module').then(
+        (module) => module.SharedModule
+      ),
   },
   {
     path: '**',
     redirectTo: 'error',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'error',
-    component: ErrorComponent
-  }
+    component: ErrorComponent,
+  },
 ];
 
-const routeConfigs: ExtraOptions = { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' }
+const routeConfigs: ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+  onSameUrlNavigation: 'reload',
+};
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, routeConfigs)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FrontendRoutingModule { }
+export class FrontendRoutingModule {}

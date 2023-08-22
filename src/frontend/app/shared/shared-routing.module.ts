@@ -9,28 +9,28 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {
     path: '',
-    component: SharedComponent
+    component: SharedComponent,
   },
   {
     path: 'sample1',
-    component: Sample1Component
+    component: Sample1Component,
   },
   {
     path: 'sample2',
-    component: Sample2Component
+    component: Sample2Component,
   },
   {
     path: 'sample3',
-    component: Sample3Component
+    component: Sample3Component,
   },
   {
     path: 'error',
-    component: ErrorComponent
-  }
+    component: ErrorComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SharedRoutingModule { }
+export class SharedRoutingModule {}

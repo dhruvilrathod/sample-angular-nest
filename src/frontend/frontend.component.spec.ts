@@ -3,10 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FrontendComponent } from './frontend.component';
 
 describe('FrontendComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [FrontendComponent]
-  }));
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [FrontendComponent],
+    })
+  );
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(FrontendComponent);
@@ -24,6 +26,8 @@ describe('FrontendComponent', () => {
     const fixture = TestBed.createComponent(FrontendComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('sample-angular-nest app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain(
+      'sample-angular-nest app is running!'
+    );
   });
 });

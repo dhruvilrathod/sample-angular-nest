@@ -8,7 +8,7 @@ describe('SharedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SharedComponent]
+      declarations: [SharedComponent],
     });
     fixture = TestBed.createComponent(SharedComponent);
     component = fixture.componentInstance;
