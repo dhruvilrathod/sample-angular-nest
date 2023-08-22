@@ -1,4 +1,3 @@
-
 # Angular + NestJS Boilerplate
 
 This project is a basic orchestration of using Angular and NestJS in a single project under common environment
