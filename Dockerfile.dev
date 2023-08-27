@@ -1,0 +1,47 @@
+# --------------------- stage 0 :: pull and prepare the enviornment --------------------------
+
+FROM alpine as base
+RUN apk update
+RUN apk add --no-cache dumb-init openrc nginx shadow sudo nodejs npm
+RUN rc-update add nginx default
+
+RUN adduser public -D
+RUN usermod -aG root public
+RUN echo 'public ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/root
+
+RUN mkdir -p /usr/main/sample-angular-nest && chown public:public /usr/main/sample-angular-nest
+WORKDIR /usr/main/sample-angular-nest
+
+ENV npm_config_cache /usr/main/sample-angular-nest/.npm
+USER public
+
+COPY nginx.conf /etc/nginx
+
+RUN sudo rm /etc/nginx/http.d/default.conf
+RUN sudo mkdir -p /var/lib/nginx/tmp /var/log/nginx /var/run/nginx
+RUN sudo chown -R public:public /var/lib/nginx /var/log/nginx /var/run/nginx
+RUN sudo chmod -R 777 /var/lib/nginx /var/log/nginx /var/run/nginx
+
+COPY --chown=public:public ./package*.json ./
+
+# --------------------- stage 1 :: installing correct dependency -----------------------------
+
+FROM base as dev
+WORKDIR /usr/main/sample-angular-nest
+RUN npm ci
+USER public
+
+# --------------------- stage 2 :: building and serving files -----------------------------
+
+FROM base as production
+WORKDIR /usr/main/sample-angular-nest
+COPY --chown=public:public package*.json ./
+COPY --chown=public:public --from=dev /usr/main/sample-angular-nest/node_modules ./node_modules
+COPY --chown=public:public . .
+# RUN npm run backend-build
+RUN npm run fullstack-build-prod
+ENV NODE_ENV=production
+RUN npm ci --omit=dev && npm cache clean --force && npm prune --production
+EXPOSE 3000 80
+
+CMD ["sh", "start_server.sh"]

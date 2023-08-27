@@ -1,5 +1,11 @@
 <div>
-    App Env: {{ currentEnv }} 
+    App Env: {{ currentEnv }}
+    <br>
+    API request URL: {{ statusUrl }}
+    <br>
+    API Status: {{ apiStatus | async | json }}
+    <br>
+    Fake call Status: {{ fakeCallStatus | async | json }}
     <br>
     Sample Data: {{ sampleObj | json}}
 </div>
