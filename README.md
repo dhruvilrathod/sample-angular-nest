@@ -42,6 +42,34 @@ npm run fullstack-run-dev
 ```
 
 *For build and test commands in detail, refer `package.json`*
+## Docker Support (For Development)
+
+To create an Image of this project
+
+```
+docker build --no-cache -t sample-angular-nest-image:latest -f Dockerfile.dev .
+```
+
+To run the container with connectivity at port: `8082`
+
+```
+docker run --rm -it -p 3000:3000/tcp -p 8082:80/tcp sample-nest-angular-image:latest
+```
+
+## Docker Support (For Production)
+
+To create an Image of this project
+
+```
+docker build --no-cache -t sample-angular-nest-image:latest -f Dockerfile.prod .
+```
+
+To run the container with connectivity at port: `8082`
+
+```
+docker run --rm -d -p 8082:80/tcp sample-nest-angular-image:latest
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -52,4 +80,4 @@ npm run fullstack-run-dev
 - [@dhruvilrathod](https://www.github.com/dhruvilrathod)
 
 
-*Additional things are coming...*
+*More things are coming soon... (Hot Reloading, Load Balancer etc.)*
