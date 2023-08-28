@@ -53,7 +53,7 @@ docker build --no-cache -t sample-angular-nest-image:latest -f Dockerfile.dev .
 To run the container with connectivity at port: `8082`
 
 ```
-docker run --rm -it -p 3000:3000/tcp -p 8082:80/tcp sample-nest-angular-image:latest
+docker run --rm -it -p 3000:3000/tcp -p 8082:80/tcp sample-angular-nest-image:latest
 ```
 
 ## Docker Support (For Production)
@@ -67,7 +67,7 @@ docker build --no-cache -t sample-angular-nest-image:latest -f Dockerfile.prod .
 To run the container with connectivity at port: `8082`
 
 ```
-docker run --rm -d -p 8082:80/tcp sample-nest-angular-image:latest
+docker run --rm -d -p 8082:80/tcp sample-angular-nest-image:latest
 ```
 
 ## License
