@@ -1,8 +1,8 @@
 # --------------------- stage 0 :: pull and prepare the enviornment --------------------------
 
-FROM alpine as base
+FROM node:18.17.1-alpine3.17 as base
 RUN apk update
-RUN apk add --no-cache dumb-init openrc nginx shadow sudo nodejs npm
+RUN apk add --no-cache openrc nginx shadow sudo
 RUN rc-update add nginx default
 
 RUN adduser public -D
@@ -38,9 +38,9 @@ WORKDIR /usr/main/sample-angular-nest
 COPY --chown=public:public package*.json ./
 COPY --chown=public:public --from=dev /usr/main/sample-angular-nest/node_modules ./node_modules
 COPY --chown=public:public . .
-# RUN npm run backend-build
 RUN npm run fullstack-build-prod
 ENV NODE_ENV=production
+RUN node package-modifier.js
 RUN npm ci --omit=dev && npm cache clean --force && npm prune --production
 EXPOSE 3000 80
 
