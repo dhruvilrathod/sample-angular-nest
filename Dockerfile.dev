@@ -41,6 +41,7 @@ COPY --chown=public:public . .
 RUN npm run fullstack-build-prod
 ENV NODE_ENV=production
 RUN node package-modifier.js
+RUN rm -r .angular/
 RUN npm ci --omit=dev && npm cache clean --force && npm prune --production
 EXPOSE 3000 80
 
